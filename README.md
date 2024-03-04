@@ -12,7 +12,8 @@ Usage :-
     2. cd termux-adb
     3. bash install.sh
 5. clone this repo to termux
-6. chmod +x flash.sh
-7. ./flash.sh
+6. cd Termux-Root-Recovery-Tool
+7. chmod +x flash.sh
+8. ./flash.sh
 
 copy recovery.img boot.img & vbmeta.img to termux root directory 
