@@ -16,4 +16,4 @@ Usage :-
 7. chmod +x flash.sh
 8. ./flash.sh
 
-copy recovery.img boot.img & vbmeta.img to termux root directory 
+copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
