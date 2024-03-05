@@ -13,15 +13,21 @@ installation :-
     3. bash install.sh
     4. cd $HOME
 
-6 ```bash
+```bash
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 ```
 
-7. ```cd Termux-Root-Recovery-Tool```
-8. chmod +x flash.sh
+```bash
+cd Termux-Root-Recovery-Tool
+```
+```bash
+chmod +x flash.sh
+```
 
  Run Tool 
-9. ./flash.sh
+```bash
+./flash.sh
+```
 
 copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
 
