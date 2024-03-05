@@ -11,7 +11,11 @@ installation :-
     1. git clone https://github.com/nohajc/termux-adb
     2. cd termux-adb
     3. bash install.sh
-    4. cd $HOME
+```bash
+cd $HOME
+```
+
+```Installation Termux-Root-Recovery-Tool```
 
 ```bash
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
