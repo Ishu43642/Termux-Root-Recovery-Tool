@@ -13,11 +13,11 @@ installation :-
     3. bash install.sh
     4. cd $HOME
 
-'''bash
+```bash
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
-'''
+```
 
-7. cd Termux-Root-Recovery-Tool
+7. ```cd Termux-Root-Recovery-Tool```
 8. chmod +x flash.sh
 
  Run Tool 
@@ -25,13 +25,3 @@ git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 
 copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
 
-
-```bash
-termux-setup-storage
-```
-```bash
-yes | pkg install python3
-```
-```bash
-curl -O https://raw.githubusercontent.com/offici5l/un-lock/master/un-lock.py && python un-lock.py
-```
