@@ -6,7 +6,7 @@ installation :-
 1. Install termux & termux api apk
 2. yes | pkg update && upgrade 
 3. pkg install termux-api
-4. install termux-adb fastboot tool
+4. install [termux-adb fastboot](https://github.com/nohajc/termux-adb) tool
   credit :- termux-adb - nohajc 
     1. git clone https://github.com/nohajc/termux-adb
     2. cd termux-adb
