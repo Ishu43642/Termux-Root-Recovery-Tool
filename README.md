@@ -3,11 +3,11 @@ This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader 
 
 installation :- 
 
-1. Install termux & termux api apk
+1. Install [termux](https://f-droid.org/repo/com.termux_118.apk) & [Termux-api](https://f-droid.org/repo/com.termux.api_51.apk) apk
 2. yes | pkg update && upgrade 
 3. pkg install termux-api
-4. install [termux-adb fastboot](https://github.com/nohajc/termux-adb) tool
-  credit :- termux-adb - nohajc 
+4. install [termux-adb fastboot](https://github.com/nohajc/termux-adb)
+   credit :- termux-adb - nohajc 
     1. git clone https://github.com/nohajc/termux-adb
     2. cd termux-adb
     3. bash install.sh
