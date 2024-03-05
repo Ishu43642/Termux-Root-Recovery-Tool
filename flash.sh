@@ -12,11 +12,12 @@ echo -e "\033[0;33m
   3. Flash Boot image
   4. Check adb devices
   5. Check fastboot devices
-  6. Reboot to System
+  6. Test TWRP Booting
   7. Flash Zip adb Sideload
   8. Flash Magisk Root
   9. Reboot To Recovery Mode
  10. Reboot To Fastboot Mode
+ 11. Reboot to System 
 ------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
@@ -40,7 +41,7 @@ case $flasher in
 
     for file in "${files[@]}"; do
       if [ ! -f "$file" ]; then
-        echo -e "\033[0;31m \033[3m Please ensure that all of these files exist and try again. Have a good day! \033[0m"
+        echo -e "\033[0;31m \033[3m Please ensure that all of these files exist and try again. ThanksYou! \033[0m"
         exit 1;
       fi
     done
@@ -118,7 +119,7 @@ case $flasher in
 
     source ./flash.sh
   ;;
-  "6")
+  "11")
     echo -e "\033[0;32m Rebooting your device to system! Have a good day! \033[0m";
     termux-fastboot reboot
 
@@ -192,6 +193,32 @@ echo -e "\033[0;32m reboot device\033[0m"
     termux-adb reboot bootloader
 
     source ./flash.sh
+  ;;
+"6")
+    
+ echo -e "\033[0;33m Please ensure that 'recovery.img' file exist in root directory. Press enter to continue \033[0m";
+
+    read
+
+    files=("recovery.img")
+
+    for file in "${files[@]}"; do
+      if [ ! -f "$file" ]; then
+        echo -e "\033[0;31m > $file file is not found \033[0m";
+      fi
+    done
+
+    for file in "${files[@]}"; do
+      if [ ! -f "$file" ]; then
+        echo -e "\033[0;31m \033[3m Please ensure that all of these files exist and try again. Have a good day! \033[0m"
+        exit 1;
+      fi
+    done
+    
+    echo -e "\033[0;32m Booting TWRP Recovery \033[0m";
+    termux-fastboot boot recovery.img
+
+source ./flash.sh
   ;;
   *)
     echo -e '\033[0;31m Script execution aborted. \033[0m';
