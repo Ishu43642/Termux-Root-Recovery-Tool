@@ -13,7 +13,7 @@ installation :-
     3. bash install.sh
     4. cd $HOME
 
-```bash
+6 ```bash
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 ```
 
