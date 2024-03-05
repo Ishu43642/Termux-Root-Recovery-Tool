@@ -13,7 +13,9 @@ installation :-
     3. bash install.sh
     4. cd $HOME
 
-'''bash git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git'''
+'''bash
+git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
+'''
 
 7. cd Termux-Root-Recovery-Tool
 8. chmod +x flash.sh
