@@ -11,7 +11,7 @@ installation :-
     2. cd termux-adb
     3. bash install.sh
     4. cd $HOME
-5. clone Termux this repo to termux
+5. git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 6. cd Termux-Root-Recovery-Tool
 7. chmod +x flash.sh
 
