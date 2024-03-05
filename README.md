@@ -4,7 +4,7 @@ This tool install Twrp Recovery, Boot.img &amp; vbmeta.img files in bootloader u
 Usage :- 
 
 1. Install termux & termux api apk
-2. pkg update && upgrade 
+2. yes | pkg update && upgrade 
 3. pkg install termux-api
 4. install termux-adb fastboot tool
   credit :- termux-adb - nohajc 
