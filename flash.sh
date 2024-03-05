@@ -2,15 +2,22 @@
 trap "echo -e '\033[0;31m Script execution aborted. \033[0m'; exit 1" INT
 
 echo -e "\033[0;33m
-Repair A2Z Root Recovery Tool
-What do you want to do?
-1. Flash Recovery
-2. Flash VBMETA
-3. Use adb Sideload
-4. Check adb devices
-5. Check fastboot devices
-6. Reboot to System
-7. Flash boot image 
+-----------------------------------------
+   Repair A2Z Root Recovery Tool
+-----------------------------------------
+   What do you want to do?
+-----------------------------------------
+  1. Flash Recovery
+  2. Flash VBMETA
+  3. Flash Boot image
+  4. Check adb devices
+  5. Check fastboot devices
+  6. Reboot to System
+  7. Flash Zip adb Sideload
+  8. Flash Magisk Root
+  9. Reboot To Recovery Mode
+ 10. Reboot To Fastboot Mode
+------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
 
@@ -79,7 +86,7 @@ case $flasher in
     source ./flash.sh
 
   ;;
-  "3")
+  "7")
 
     echo -e "\033[0;32m Please enter the file name of your custom rom. \033[0m";
     read -p "Enter the zip file name: " romname
@@ -117,7 +124,7 @@ case $flasher in
 
     source ./flash.sh
   ;;
-  "7")
+  "3")
     
  echo -e "\033[0;33m Please ensure that 'boot.img' file exist in root directory. Press enter to continue \033[0m";
 
@@ -147,6 +154,44 @@ echo -e "\033[0;32m reboot device\033[0m"
     source ./flash.sh
 
 
+  ;;
+"8")
+
+    echo -e "\033[0;33m Please ensure that your device is connected in twrp sideload mode. Press enter to continue \033[0m";
+
+    read
+
+    files=("magiskv27.zip")
+
+    for file in "${files[@]}"; do
+      if [ ! -f "$file" ]; then
+        echo -e "\033[0;31m > $file file is not found \033[0m";
+      fi
+    done
+
+    for file in "${files[@]}"; do
+      if [ ! -f "$file" ]; then
+        echo -e "\033[0;31m \033[3m Please ensure that all of these files exist and try again. Have a good day! \033[0m"
+        exit 1;
+      fi
+    done
+    
+    echo -e "\033[0;32m Flashing magisk root \033[0m";
+    termux-adb sideload magiskv27.zip
+
+ source ./flash.sh
+  ;;
+"9")
+    echo -e "\033[0;32m Rebooting your device to Recovery Mode ! Have a good day! \033[0m";
+    termux-adb reboot recovery
+
+    source ./flash.sh
+  ;;
+"10")
+    echo -e "\033[0;32m Rebooting your device to Fastboot Mode !Have a good day! \033[0m";
+    termux-adb reboot bootloader
+
+    source ./flash.sh
   ;;
   *)
     echo -e '\033[0;31m Script execution aborted. \033[0m';
