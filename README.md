@@ -24,3 +24,14 @@ git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 9. ./flash.sh
 
 copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
+
+
+```bash
+termux-setup-storage
+```
+```bash
+yes | pkg install python3
+```
+```bash
+curl -O https://raw.githubusercontent.com/offici5l/un-lock/master/un-lock.py && python un-lock.py
+```
