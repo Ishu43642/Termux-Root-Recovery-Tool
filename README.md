@@ -1,7 +1,7 @@
 # Termux-Root-Recovery-Tool
-This tool install Twrp Recovery, Boot.img &amp; vbmeta.img files in bootloader unlocked devices only
+This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
 
-Usage :- 
+installation :- 
 
 1. Install termux & termux api apk
 2. yes | pkg update && upgrade 
@@ -14,6 +14,8 @@ Usage :-
 5. clone this repo to termux
 6. cd Termux-Root-Recovery-Tool
 7. chmod +x flash.sh
+
+ Run Tool 
 8. ./flash.sh
 
 copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
