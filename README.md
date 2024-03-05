@@ -6,12 +6,12 @@ installation :-
 1. Install [termux](https://f-droid.org/repo/com.termux_118.apk) & [Termux-api](https://f-droid.org/repo/com.termux.api_51.apk) apk
 2. yes | pkg update && upgrade 
 3. pkg install termux-api
-4. install [termux-adb fastboot](https://github.com/nohajc/termux-adb)
-   credit :- termux-adb - nohajc 
+4. install [termux-adb fastboot](https://github.com/nohajc/termux-adb) credit :- termux-adb - nohajc 
     1. git clone https://github.com/nohajc/termux-adb
     2. cd termux-adb
     3. bash install.sh
-5. clone this repo to termux
+    4. cd $HOME
+5. clone Termux this repo to termux
 6. cd Termux-Root-Recovery-Tool
 7. chmod +x flash.sh
 
