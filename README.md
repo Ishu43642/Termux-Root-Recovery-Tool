@@ -3,47 +3,47 @@ This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader 
 
 # installation :- 
 
-Install [termux](https://f-droid.org/repo/com.termux_118.apk) & [Termux-api](https://f-droid.org/repo/com.termux.api_51.apk) apk
-```bash
+```Install``` [termux](https://f-droid.org/repo/com.termux_118.apk) & [Termux-api](https://f-droid.org/repo/com.termux.api_51.apk) ```apk```
+```console
 yes | pkg update && upgrade
 ```
-```bash
+```console
 pkg install termux-api
 ```
-```bash
+```console
 pkg install git
 ```
 # install Termux-adb
-[termux-adb fastboot](https://github.com/nohajc/termux-adb) credit :- termux-adb - nohajc 
+[termux-adb fastboot](https://github.com/nohajc/termux-adb) credit :- termux-adb - [nohajc](https://github.com/nohajc)
 
-```bash
+```console
 git clone https://github.com/nohajc/termux-adb
 ```
-```bash
+```console
 cd termux-adb
 ```
-```bash
+```console
 bash install.sh
 ```
-```bash
+```console
 cd $HOME
 ```
 
 # Installation Termux-Root-Recovery-Tool
 
-```bash
+```console
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 ```
 
-```bash
+```console
 cd Termux-Root-Recovery-Tool
 ```
-```bash
+```console
 chmod +x flash.sh
 ```
 # Run Tool 
 
-```bash
+```console
 ./flash.sh
 ```
 
