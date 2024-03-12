@@ -14,7 +14,9 @@ pkg install termux-api
 pkg install git
 ```
 # install Termux-adb
-[termux-adb fastboot](https://github.com/nohajc/termux-adb) credit :- termux-adb - [nohajc](https://github.com/nohajc)
+[termux-adb fastboot](https://github.com/nohajc/termux-adb) 
+
+```credit :- termux-adb``` [nohajc](https://github.com/nohajc)
 
 ```console
 git clone https://github.com/nohajc/termux-adb
