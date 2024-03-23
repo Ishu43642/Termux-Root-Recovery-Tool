@@ -227,7 +227,7 @@ source ./flash.sh
   ;;
   "12")
     echo -e "\033[0;32m Stock ROM Flash system! \033[0m";
-    source ./flash-stock-rom.sh;
+    source ./flash-stock-rom.sh
   ;;
   *)
     echo -e '\033[0;31m Script execution aborted. \033[0m';
