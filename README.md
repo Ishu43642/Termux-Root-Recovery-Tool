@@ -13,23 +13,6 @@ pkg install termux-api
 ```console
 pkg install git
 ```
-# installation Termux-Adb :-
-[Termux-Adb Fastboot](https://github.com/nohajc/termux-adb) 
-
-```credit :- Termux-Adb``` [nohajc](https://github.com/nohajc)
-
-```console
-git clone https://github.com/nohajc/termux-adb
-```
-```console
-cd termux-adb
-```
-```console
-bash install.sh
-```
-```console
-cd $HOME
-```
 
 # Installation Termux-Root-Recovery-Tool :-
 
@@ -43,6 +26,15 @@ cd Termux-Root-Recovery-Tool
 ```console
 chmod +x flash.sh
 ```
+# installation Termux-Adb :-
+[Termux-Adb Fastboot](https://github.com/nohajc/termux-adb) 
+
+```credit :- Termux-Adb``` [nohajc](https://github.com/nohajc)
+
+```console
+bash installadb.sh
+```
+
 # Run Tool 
 
 ```console
