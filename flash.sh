@@ -226,8 +226,10 @@ source ./flash.sh
     exit 1
   ;;
   "12")
-    echo -e "\033[0;32m Stock ROM Flash system! \033[0m";
-    source ./flash-stock-rom.sh
+  echo -e "\033[0;32m Rebooting your device to system! Have a good day! \033[0m";
+    ./flash-stock-rom.sh
+
+    source ./flash.sh
   ;;
   *)
     echo -e '\033[0;31m Script execution aborted. \033[0m';
