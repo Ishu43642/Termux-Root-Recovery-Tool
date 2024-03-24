@@ -8,6 +8,9 @@ This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader 
 yes | pkg update && upgrade
 ```
 ```console
+termux-seup-storage
+```
+```console
 pkg install termux-api
 ```
 ```console
@@ -41,5 +44,8 @@ bash installadb.sh
 ./flash.sh
 ```
 
-# copy recovery.img boot.img & vbmeta.img to termux Termux-Root-Recovery-Tool Folder using any file xplorer 
-
+# For flashing Fastboot rom
+1.Rename your fastboot rom folder to - stock-rom 
+2.Copy images folder (under stock-rom) to Termux-Root-Recovery-Tool folder using Material File manager
+3.copy stock rom folder to to Termux-Root-Recovery-Tool folder
+ ```Now you can use Fastboot Rom Flash Option```
