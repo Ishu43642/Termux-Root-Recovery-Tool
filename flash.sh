@@ -136,7 +136,7 @@ case $flasher in
         exit 1;
     fi
 
-    termux-fastboot flash recovery $romname
+    termux-fastboot flash boot $romname
 
 echo -e "\033[0;32m reboot device\033[0m"
     termux-fastboot reboot
