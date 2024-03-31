@@ -8,7 +8,7 @@ This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader 
 yes | pkg update && upgrade
 ```
 ```console
-termux-seup-storage
+termux-setup-storage
 ```
 ```console
 pkg install termux-api
