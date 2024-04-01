@@ -51,7 +51,8 @@ case $flasher in
         exit 1;
     fi
 
-    termux-fastboot flash recovert $romname
+    termux-fastboot --disable-verity --disable-verification flash vbmeta $romname
+
     else
       echo -e "\033[0;32m Skipping Flashing vbmeta.img \033[0m";
     fi
