@@ -47,6 +47,6 @@ bash installadb.sh
 # For flashing Fastboot rom
 1.Rename your fastboot rom folder to  ```stock-rom```
 
-2.Copy stock-rom folder to Termux-Root-Recovery-Tool folder using [Material-Filemanager](https://f-droid.org/en/packages/me.zhanghai.android.files/)
+2.Copy ```stock-rom``` folder to  Download Folder Under internal storage 
 
  ```Now you can use Fastboot Rom Flash Option```
