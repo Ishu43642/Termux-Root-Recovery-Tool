@@ -14,7 +14,7 @@ termux-setup-storage
 pkg install termux-api
 ```
 ```console
-pkg install git
+yes | pkg install git
 ```
 
 # Installation Termux-Root-Recovery-Tool :-
