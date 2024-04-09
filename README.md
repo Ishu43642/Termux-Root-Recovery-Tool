@@ -1,3 +1,5 @@
+<img align="right" src="TRRT.jpg" width="350" alt="Termux Root Recovery Tool">
+
 # Termux-Root-Recovery-Tool
 This tool install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
 
