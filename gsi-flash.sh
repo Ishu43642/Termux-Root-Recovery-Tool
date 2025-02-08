@@ -138,7 +138,7 @@ source ./gsi-flash.sh
   ;;
 "11")
     
-  echo -e "\033[0;32m Erasing system ! \033[0m";
+  echo -e "\033[0;32m Resetting Device! \033[0m";
     termux-fastboot -w
 
 source ./gsi-flash.sh
