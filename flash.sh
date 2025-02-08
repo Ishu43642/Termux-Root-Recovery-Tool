@@ -18,7 +18,7 @@ echo -e "\033[0;33m
   9. Reboot To Recovery Mode
  10. AB Partition Tool
  11. Flash Fastboot Rom
- 12. Flash GSi Rom
+ 12. Flash GSi Rom (Dynamic Partition)
 ------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
