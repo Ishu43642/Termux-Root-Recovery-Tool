@@ -16,7 +16,8 @@ echo -e "\033[0;33m
   7. Delete logical partition B
   8. Flash GSi system image
   9. Fastboot to recovery 
- 11. Main Menu
+ 11. Reset Device via commond (Not for Xiaomi)
+ 12. Main Menu
 -------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
@@ -129,11 +130,18 @@ case $flasher in
 
 source ./gsi-flash.sh
   ;;
-"11")
+"12")
     echo -e "\033[0;32m Back to Main Page! \033[0m";
     ./flash.sh
 
     source ./gsi-flash.sh
+  ;;
+"11")
+    
+  echo -e "\033[0;32m Erasing system ! \033[0m";
+    termux-fastboot -w
+
+source ./gsi-flash.sh
   ;;
   *)
     echo -e '\033[0;31m Script execution aborted. \033[0m';
