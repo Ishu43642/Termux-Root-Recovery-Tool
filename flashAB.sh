@@ -56,8 +56,6 @@ case $flasher in
       echo -e "\033[0;32m Skipping Flashing recovery_b.img \033[0m";
     fi
 
-    echo -e "\033[0;32m Rebooting to recovery \033[0m";
-    termux-fastboot reboot recovery
 
     if [ $? -eq 0 ]; then
       echo -e "\033[0;32m Operation Succeed \033[0m";
@@ -77,8 +75,6 @@ case $flasher in
 
     termux-fastboot flash recovery_b $romname
 
-    echo -e "\033[0;32m Rebooting your device to recovery! Have a good day! \033[0m";
-    termux-fastboot reboot recovery
 
     if [ $? -eq 0 ]; then
       echo -e "\033[0;32m Operation Succeed \033[0m";
@@ -163,9 +159,6 @@ case $flasher in
     else
       echo -e "\033[0;32m Skipping Flashing boot_b.img \033[0m";
     fi
-
-    echo -e "\033[0;32m Rebooting to system\033[0m";
-    termux-fastboot reboot
 
     if [ $? -eq 0 ]; then
       echo -e "\033[0;32m Operation Succeed \033[0m";
