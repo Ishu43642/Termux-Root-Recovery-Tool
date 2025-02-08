@@ -16,7 +16,7 @@ echo -e "\033[0;33m
   7. Delete logical partition B
   8. Flash GSi system image
   9. Fastboot to recovery 
- 11. Reset Device via commond (Not for Xiaomi)
+ 11. Reset Device via cmd (Not for Xiaomi)
  12. Main Menu
 -------------------------------------------
 (Press Any key to Exit or input your choice.)
