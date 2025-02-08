@@ -12,12 +12,13 @@ echo -e "\033[0;33m
   3. Flash Boot image
   4. Check adb devices
   5. Check fastboot devices
-  6. Tool For AB Device
-  7. Flash Zip adb Sideload
+  6. Flash Zip adb Sideload
+  7. Reboot To Fastboot Mode
   8. Reboot System (From fastboot)
   9. Reboot To Recovery Mode
- 10. Reboot To Fastboot Mode
+ 10. AB Partition Tool
  11. Flash Fastboot Rom
+ 12. Flash GSi Rom
 ------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
@@ -57,9 +58,6 @@ case $flasher in
       echo -e "\033[0;32m Skipping Flashing vbmeta.img \033[0m";
     fi
 
-    echo -e "\033[0;32m Rebooting to System \033[0m";
-    termux-fastboot reboot
-
     if [ $? -eq 0 ]; then
       echo -e "\033[0;32m Operation Succeed \033[0m";
     fi
@@ -78,9 +76,6 @@ case $flasher in
 
     termux-fastboot --disable-verity --disable-verification flash vbmeta $romname
 
-    echo -e "\033[0;32m Rebooting your device to system! Have a good day! \033[0m";
-    termux-fastboot reboot
-
     if [ $? -eq 0 ]; then
       echo -e "\033[0;32m Operation Succeed \033[0m";
     fi
@@ -88,7 +83,7 @@ case $flasher in
     source ./flash.sh
 
   ;;
-  "7")
+  "6")
 
     echo -e "\033[0;32m Please enter the file name of your custom rom. \033[0m";
     read -p "Enter the zip file name: " romname
@@ -141,9 +136,6 @@ case $flasher in
 
     termux-fastboot flash boot $romname
 
-echo -e "\033[0;32m reboot device\033[0m"
-    termux-fastboot reboot
-
     source ./flash.sh
 
 
@@ -155,7 +147,7 @@ echo -e "\033[0;32m reboot device\033[0m"
 
     source ./flash.sh
   ;;
-"10")
+"7")
     echo -e "\033[0;32m Rebooting your device to Fastboot Mode !Have a good day! \033[0m";
     termux-adb reboot bootloader
 
@@ -167,13 +159,13 @@ echo -e "\033[0;32m reboot device\033[0m"
 
     source ./flash.sh
   ;;
-"10")
-    echo -e "\033[0;32m Rebooting your device to Fastboot Mode !Have a good day! \033[0m";
-    termux-adb reboot bootloader
+"12")
+    echo -e "\033[0;32m Launching GSi Flash Tool! \033[0m";
+    ./gsi-flash.sh
 
     source ./flash.sh
   ;;
-"6")
+"10")
     
   echo -e "\033[0;32m Launching AB Partition Device Tool! \033[0m";
     ./flashAB.sh
