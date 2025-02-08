@@ -29,7 +29,7 @@ git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 cd Termux-Root-Recovery-Tool
 ```
 ```console
-chmod +x flash.sh && chmod +x flash-stock-rom.sh && chmod +x flashAB.sh && gsi-flash.sh
+chmod +x flash.sh && chmod +x flash-stock-rom.sh && chmod +x flashAB.sh && chmod +x gsi-flash.sh
 ```
 # installation Termux-Adb :-
 [Termux-Adb Fastboot](https://github.com/nohajc/termux-adb) 
