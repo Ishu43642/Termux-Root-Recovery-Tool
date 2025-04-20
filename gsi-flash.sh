@@ -1,6 +1,36 @@
 #!/bin/bash
 trap "echo -e '\033[0;31m Script execution aborted. \033[0m'; exit 1" INT
 
+# Function to prompt user before returning to menu
+return_to_menu() {
+    echo -e "\033[1;33m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;33m│ \033[1;97mOperation completed                         \033[1;33m│\033[0m"
+    echo -e "\033[1;33m╰───────────────────────────────────────────────╯\033[0m"
+    
+    read -p $'\033[1;36mReturn to GSI Flash menu? (y/n): \033[0m' choice
+    if [[ "$choice" == "y" || "$choice" == "Y" || "$choice" == "yes" || "$choice" == "YES" ]]; then
+        source ./gsi-flash.sh
+    else
+        echo -e "\033[1;32m✓ Exiting program. Thank you for using Termux Root Recovery Tool! \033[0m"
+        exit 0
+    fi
+}
+
+# Function to prompt user before returning to main menu
+go_to_main_menu() {
+    echo -e "\033[1;33m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;33m│ \033[1;97mReturning to main menu?                     \033[1;33m│\033[0m"
+    echo -e "\033[1;33m╰───────────────────────────────────────────────╯\033[0m"
+    
+    read -p $'\033[1;36mGo to main menu? (y/n): \033[0m' choice
+    if [[ "$choice" == "y" || "$choice" == "Y" || "$choice" == "yes" || "$choice" == "YES" ]]; then
+        ./flash.sh
+    else
+        echo -e "\033[1;32m✓ Exiting program. Thank you for using Termux Root Recovery Tool! \033[0m"
+        exit 0
+    fi
+}
+
 clear
 echo -e "\033[1;36m
 ╔═══════════════════════════════════════════════╗
@@ -68,99 +98,158 @@ case $flasher in
       echo -e "\033[1;32m✓ Operation completed successfully! \033[0m";
     fi
 
-    source ./gsi-flash.sh
+    return_to_menu
   ;;
   "2")
-     echo -e "\033[0;32m Please enter the vbmeta file location. \033[0m";
-    read -p "Enter the vbmeta path: " romname
+     echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+     echo -e "\033[1;36m│\033[1;33m        VBMETA Flash Operation                \033[1;36m│\033[0m"
+     echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+     
+     echo -e "\033[1;92m► Please enter the vbmeta file location. \033[0m";
+    read -p $'\033[1;97mEnter the vbmeta path: \033[0m' romname
 
     if [ ! -f "$romname" ]; then
-        echo -e "\033[0;31m > $romname file is not found \033[0m";
-        echo -e "\033[0;31m \033[3m Please ensure that '$romname' file exist and try again. Have a good day! \033[0m";
+        echo -e "\033[1;31m✗ $romname file is not found \033[0m";
+        echo -e "\033[1;31m\033[3m Please ensure that '$romname' file exists and try again. \033[0m";
         exit 1;
     fi
 
+    echo -e "\033[1;33m⚡ Flashing vbmeta... \033[0m"
     termux-fastboot --disable-verity --disable-verification flash vbmeta $romname
 
     if [ $? -eq 0 ]; then
-      echo -e "\033[0;32m Operation Succeed \033[0m";
+      echo -e "\033[1;32m✓ Operation completed successfully! \033[0m";
     fi
 
-    source ./gsi-flash.sh
+    return_to_menu
 
   ;;
   "7")
-    echo -e "\033[0;32m deleting product b: \033[0m"
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Delete Logical Partition B             \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;33m⚡ Deleting product_b partition... \033[0m"
     termux-fastboot delete-logical-partition product_b
 
-    source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Partition deleted successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
   "6")
-    echo -e "\033[0;32m Deleting product A: \033[0m"
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Delete Logical Partition A             \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;33m⚡ Deleting product_a partition... \033[0m"
     termux-fastboot delete-logical-partition product_a
 
-    source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Partition deleted successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
   "8")
-    
-  echo -e "\033[0;32m Please enter the GSi image file location. \033[0m";
-    read -p "Enter the GSi image path: " romname
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        GSI System Image Flash Operation       \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+  
+    echo -e "\033[1;92m► Please enter the GSI image file location. \033[0m";
+    read -p $'\033[1;97mEnter the GSI image path: \033[0m' romname
 
     if [ ! -f "$romname" ]; then
-        echo -e "\033[0;31m > $romname file is not found \033[0m";
-        echo -e "\033[0;31m \033[3m Please ensure that '$romname' file exist and try again. Have a good day! \033[0m";
+        echo -e "\033[1;31m✗ $romname file is not found \033[0m";
+        echo -e "\033[1;31m\033[3m Please ensure that '$romname' file exists and try again. \033[0m";
         exit 1;
     fi
 
+    echo -e "\033[1;33m⚡ Flashing GSI system image... \033[0m"
     termux-fastboot flash system $romname
 
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ System image flashed successfully! \033[0m";
+    fi
 
-    source ./gsi-flash.sh
+    return_to_menu
 
 
   ;;
 "3")
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Fastboot to FastbootD Operation       \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
 
-    echo -e "\033[0;32m Rebooting to FastbootD ! Have a good day! \033[0m";
+    echo -e "\033[1;33m⚡ Rebooting to FastbootD... \033[0m"
     termux-fastboot reboot fastboot
 
-    source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Reboot command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "9")
-    echo -e "\033[0;32m Rebooting to recovery !Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Fastboot to Recovery Operation        \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+
+    echo -e "\033[1;33m⚡ Rebooting to recovery... \033[0m"
     termux-fastboot reboot recovery
 
-    source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Reboot command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "4")
-    echo -e "\033[0;32m Chacking Userspace for rom ! Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Check Userspace for GSI Operation     \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+
+    echo -e "\033[1;33m⚡ Checking userspace for ROM... \033[0m"
     termux-fastboot getvar is-userspace
 
-    source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Check completed successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "5")
-    
-  echo -e "\033[0;32m Erasing system ! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Erase System Operation                \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+  
+    echo -e "\033[1;33m⚡ Erasing system partition... \033[0m"
     termux-fastboot erase system 
 
-source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ System partition erased successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "12")
-    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
-    echo -e "\033[1;36m│\033[1;33m        Returning to Main Menu                 \033[1;36m│\033[0m"
-    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
-    
-    echo -e "\033[1;92m► Loading main menu... \033[0m"
-    ./flash.sh
-
-    source ./gsi-flash.sh
+    go_to_main_menu
   ;;
 "11")
-    
-  echo -e "\033[0;32m Resetting Device! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Device Reset Operation                \033[1;36m│\033[0m"
+    echo -e "\033[1;36m│\033[1;31m        WARNING: Not for Xiaomi devices       \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+  
+    echo -e "\033[1;33m⚡ Resetting device... \033[0m"
     termux-fastboot -w
 
-source ./gsi-flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Device reset command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
   *)
     echo -e '\033[1;31m✗ Script execution aborted. \033[0m';

@@ -1,5 +1,22 @@
 #!/bin/bash
 trap "echo -e '\033[0;31m Script execution aborted. \033[0m'; exit 1" INT
+
+# Function to prompt user before returning to main menu
+go_to_main_menu() {
+    echo -e "\033[1;33m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;33m│ \033[1;97mReturning to main menu?                     \033[1;33m│\033[0m"
+    echo -e "\033[1;33m╰───────────────────────────────────────────────╯\033[0m"
+    
+    read -p $'\033[1;36mGo to main menu? (y/n): \033[0m' choice
+    if [[ "$choice" == "y" || "$choice" == "Y" || "$choice" == "yes" || "$choice" == "YES" ]]; then
+        cd ~/Termux-Root-Recovery-Tool
+        source ./flash.sh
+    else
+        echo -e "\033[1;32m✓ Exiting program. Thank you for using Termux Root Recovery Tool! \033[0m"
+        exit 0
+    fi
+}
+
 file1="flash_all.sh"
 file2="flash_all_lock.sh"
 file3="flash_all_except_data_storage.sh"
@@ -56,20 +73,23 @@ case $flasher in
     "1")
         echo -e "\033[1;33m⚡ Flashing stock ROM without locking bootloader... \033[0m"
         source $file1
+        echo -e "\033[1;32m✓ Flash operation completed! \033[0m"
+        go_to_main_menu
     ;;
     "2")
         echo -e "\033[1;33m⚡ Flashing stock ROM and locking bootloader... \033[0m"
         source $file2
+        echo -e "\033[1;32m✓ Flash operation completed! \033[0m"
+        go_to_main_menu
     ;;
     "3")
         echo -e "\033[1;33m⚡ Flashing stock ROM except data storage... \033[0m"
         source $file3
+        echo -e "\033[1;32m✓ Flash operation completed! \033[0m"
+        go_to_main_menu
     ;;
     "4")
-        echo -e "\033[1;92m► Returning to main menu... \033[0m"
-        cd ~/Termux-Root-Recovery-Tool
-   
-        source ./flash.sh
+        go_to_main_menu
     ;;
     *)
         echo -e '\033[1;31m✗ Script execution aborted. \033[0m';

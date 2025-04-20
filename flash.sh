@@ -1,6 +1,21 @@
 #!/bin/bash
 trap "echo -e '\033[0;31m Script execution aborted. \033[0m'; exit 1" INT
 
+# Function to prompt user before returning to main menu
+return_to_menu() {
+    echo -e "\033[1;33m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;33m│ \033[1;97mOperation completed                         \033[1;33m│\033[0m"
+    echo -e "\033[1;33m╰───────────────────────────────────────────────╯\033[0m"
+    
+    read -p $'\033[1;36mReturn to main menu? (y/n): \033[0m' choice
+    if [[ "$choice" == "y" || "$choice" == "Y" || "$choice" == "yes" || "$choice" == "YES" ]]; then
+        source ./flash.sh
+    else
+        echo -e "\033[1;32m✓ Exiting program. Thank you for using Termux Root Recovery Tool! \033[0m"
+        exit 0
+    fi
+}
+
 clear
 echo -e "\033[1;36m
 ╔═══════════════════════════════════════════════╗
@@ -78,7 +93,7 @@ case $flasher in
       echo -e "\033[1;32m✓ Operation completed successfully! \033[0m";
     fi
 
-    source ./flash.sh
+    return_to_menu
   ;;
   "2")
      echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
@@ -101,7 +116,7 @@ case $flasher in
       echo -e "\033[1;32m✓ Operation completed successfully! \033[0m";
     fi
 
-    source ./flash.sh
+    return_to_menu
 
   ;;
   "6")
@@ -126,7 +141,7 @@ case $flasher in
       echo -e "\033[1;32m✓ Sideload operation completed successfully! \033[0m";
     fi
 
-    source ./flash.sh
+    return_to_menu
     
   ;;
   "4")
@@ -137,7 +152,7 @@ case $flasher in
     echo -e "\033[1;92m► Checking ADB devices: \033[0m"
     termux-adb devices
 
-    source ./flash.sh
+    return_to_menu
   ;;
   "5")
     echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
@@ -147,64 +162,104 @@ case $flasher in
     echo -e "\033[1;92m► Checking Fastboot devices: \033[0m"
     termux-fastboot devices
 
-    source ./flash.sh
+    return_to_menu
   ;;
   "11")
-    echo -e "\033[0;32m Flashing Miui Rom Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Stock ROM Flash Operation             \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;92m► Launching Stock ROM Flashing Utility... \033[0m"
     cp flash-stock-rom.sh /storage/emulated/0/Download/stock-rom
     cd /storage/emulated/0/Download/stock-rom
     bash flash-stock-rom.sh
 
-    source ./flash.sh
+    return_to_menu
   ;;
   "3")
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Boot Image Flash Operation            \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
     
-  echo -e "\033[0;32m Please enter the boot file location. \033[0m";
-    read -p "Enter the boot path: " romname
+    echo -e "\033[1;92m► Please enter the boot file location. \033[0m";
+    read -p $'\033[1;97mEnter the boot path: \033[0m' romname
 
     if [ ! -f "$romname" ]; then
-        echo -e "\033[0;31m > $romname file is not found \033[0m";
-        echo -e "\033[0;31m \033[3m Please ensure that '$romname' file exist and try again. Have a good day! \033[0m";
+        echo -e "\033[1;31m✗ $romname file is not found \033[0m";
+        echo -e "\033[1;31m\033[3m Please ensure that '$romname' file exists and try again. \033[0m";
         exit 1;
     fi
 
+    echo -e "\033[1;33m⚡ Flashing boot image... \033[0m"
     termux-fastboot flash boot $romname
 
-    source ./flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Operation completed successfully! \033[0m";
+    fi
 
-
+    return_to_menu
   ;;
 "8")
-
-    echo -e "\033[0;32m Rebooting Device to system ! Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        System Reboot Operation               \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;33m⚡ Rebooting device to system... \033[0m"
     termux-fastboot reboot
 
-    source ./flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Reboot command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "7")
-    echo -e "\033[0;32m Rebooting your device to Fastboot Mode !Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Fastboot Mode Reboot                  \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;33m⚡ Rebooting device to fastboot mode... \033[0m"
     termux-adb reboot bootloader
 
-    source ./flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Reboot command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "9")
-    echo -e "\033[0;32m Rebooting your device to Recovery Mode ! Have a good day! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        Recovery Mode Reboot                  \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;33m⚡ Rebooting device to recovery mode... \033[0m"
     termux-adb reboot recovery
 
-    source ./flash.sh
+    if [ $? -eq 0 ]; then
+      echo -e "\033[1;32m✓ Reboot command sent successfully! \033[0m";
+    fi
+
+    return_to_menu
   ;;
 "12")
-    echo -e "\033[0;32m Launching GSi Flash Tool! \033[0m";
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        GSI Flash Tool Launch                 \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
+    
+    echo -e "\033[1;92m► Launching GSI Flash Tool... \033[0m"
     ./gsi-flash.sh
 
-    source ./flash.sh
+    return_to_menu
   ;;
 "10")
+    echo -e "\033[1;36m╭───────────────────────────────────────────────╮\033[0m"
+    echo -e "\033[1;36m│\033[1;33m        A/B Partition Tool Launch             \033[1;36m│\033[0m"
+    echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
     
-  echo -e "\033[0;32m Launching AB Partition Device Tool! \033[0m";
+    echo -e "\033[1;92m► Launching A/B Partition Device Tool... \033[0m"
     ./flashAB.sh
 
-source ./flash.sh
+    return_to_menu
   ;;
   *)
     echo -e '\033[1;31m✗ Script execution aborted. \033[0m';
