@@ -72,7 +72,8 @@ case $flasher in
      echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
      
      echo -e "\033[1;92m► Please enter the recovery file location. \033[0m";
-    read -p $'\033[1;97mEnter the recovery path: \033[0m' romname
+     echo -ne "\033[1;97mEnter the recovery path: \033[0m"
+     read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -88,7 +89,8 @@ case $flasher in
 
     if [ "$vbimg" = "y" ] || [ "$vbimg" = "yes" ] || [ "$vbimg" = "Y" ] || [ "$vbimg" = "YES" ]; then
       echo -e "\033[1;92m► Please enter the recovery file location. \033[0m";
-    read -p $'\033[1;97mEnter the recovery path: \033[0m' romname
+      echo -ne "\033[1;97mEnter the recovery path: \033[0m"
+      read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -115,7 +117,8 @@ case $flasher in
      echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
      
      echo -e "\033[1;92m► Please enter the recovery file location. \033[0m";
-    read -p $'\033[1;97mEnter the recovery path: \033[0m' romname
+     echo -ne "\033[1;97mEnter the recovery path: \033[0m"
+     read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -140,7 +143,8 @@ case $flasher in
      echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
 
     echo -e "\033[1;92m► Please enter the file name of your custom rom. \033[0m";
-    read -p $'\033[1;97mEnter the zip file name: \033[0m' romname
+    echo -ne "\033[1;97mEnter the zip file name: \033[0m"
+    read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -174,7 +178,8 @@ case $flasher in
     echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
     
     echo -e "\033[1;92m► Please enter the boot file location. \033[0m";
-    read -p $'\033[1;97mEnter the boot path: \033[0m' romname
+    echo -ne "\033[1;97mEnter the boot path: \033[0m"
+    read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -200,7 +205,8 @@ case $flasher in
     echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
    
     echo -e "\033[1;92m► Please enter the boot file location. \033[0m";
-    read -p $'\033[1;97mEnter the boot path: \033[0m' romname
+    echo -ne "\033[1;97mEnter the boot path: \033[0m"
+    read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -216,7 +222,8 @@ case $flasher in
 
     if [ "$vbimg" = "y" ] || [ "$vbimg" = "yes" ] || [ "$vbimg" = "Y" ] || [ "$vbimg" = "YES" ]; then
       echo -e "\033[1;92m► Please enter the boot file location. \033[0m";
-    read -p $'\033[1;97mEnter the boot path: \033[0m' romname
+      echo -ne "\033[1;97mEnter the boot path: \033[0m"
+      read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -242,7 +249,8 @@ case $flasher in
     echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
 
     echo -e "\033[1;92m► Please enter the recovery file location. \033[0m";
-    read -p $'\033[1;97mEnter the recovery path: \033[0m' romname
+    echo -ne "\033[1;97mEnter the recovery path: \033[0m"
+    read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
@@ -293,7 +301,8 @@ case $flasher in
     echo -e "\033[1;36m╰───────────────────────────────────────────────╯\033[0m"
   
     echo -e "\033[1;92m► Please enter the boot file location. \033[0m";
-    read -p $'\033[1;97mEnter the boot path: \033[0m' romname
+    echo -ne "\033[1;97mEnter the boot path: \033[0m"
+    read -e romname
 
     if [ ! -f "$romname" ]; then
         echo -e "\033[1;31m✗ $romname file is not found \033[0m";
