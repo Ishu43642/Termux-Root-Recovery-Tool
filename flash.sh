@@ -19,6 +19,7 @@ echo -e "\033[0;33m
  10. AB Partition Tool
  11. Flash Fastboot Rom
  12. Flash GSi Rom (Dynamic Partition)
+ 13. Check adb Device
 ------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
@@ -139,7 +140,6 @@ case $flasher in
     fi
 
     source ./flash.sh
-  ;;
   ;;
   "13")
     echo -e "\033[0;32m adb device list: \033[0m"
