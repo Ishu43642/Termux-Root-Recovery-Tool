@@ -10,7 +10,7 @@ echo -e "\033[0;33m
   1. Flash Recovery
   2. Flash VBMETA
   3. Flash Boot image
-  4. Check adb devices
+  4. Flash Super_empty.img
   5. Check fastboot devices
   6. Flash Zip adb Sideload
   7. Reboot To Fastboot Mode
@@ -19,6 +19,7 @@ echo -e "\033[0;33m
  10. AB Partition Tool
  11. Flash Fastboot Rom
  12. Flash GSi Rom (Dynamic Partition)
+ 13. Check adb Device 
 ------------------------------------------
 (Press Any key to Exit or input your choice.)
 \033[0m";
@@ -104,6 +105,44 @@ case $flasher in
     
   ;;
   "4")
+    echo -e "\033[0;32m Please enter the super_empty file location. \033[0m";
+    read -p "Enter the super_empty path: " romname
+
+    if [ ! -f "$romname" ]; then
+        echo -e "\033[0;31m > $romname file is not found \033[0m";
+        echo -e "\033[0;31m \033[3m Please ensure that '$romname' file exist and try again. Have a good day! \033[0m";
+        exit 1;
+    fi
+
+    termux-fastboot wipe-super $romname
+
+    
+    read -p "Do you want to flash 'vbmeta.img' file? Type 'y' to flash, any key to skip: " vbimg;
+
+    if [ "$vbimg" = "y" ] || [ "$vbimg" = "yes" ] || [ "$vbimg" = "Y" ] || [ "$vbimg" = "YES" ]; then
+      echo -e "\033[0;32m Please enter the vbmeta file location. \033[0m";
+    read -p "Enter the vbmeta path: " romname
+
+    if [ ! -f "$romname" ]; then
+        echo -e "\033[0;31m > $romname file is not found \033[0m";
+        echo -e "\033[0;31m \033[3m Please ensure that '$romname' file exist and try again. Have a good day! \033[0m";
+        exit 1;
+    fi
+
+    termux-fastboot --disable-verity --disable-verification flash vbmeta $romname
+
+    else
+      echo -e "\033[0;32m Skipping Flashing vbmeta.img \033[0m";
+    fi
+
+    if [ $? -eq 0 ]; then
+      echo -e "\033[0;32m Operation Succeed \033[0m";
+    fi
+
+    source ./flash.sh
+  ;;
+  ;;
+  "13")
     echo -e "\033[0;32m adb device list: \033[0m"
     termux-adb devices
 
