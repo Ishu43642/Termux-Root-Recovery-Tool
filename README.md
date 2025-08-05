@@ -3,9 +3,9 @@
 # Termux-Root-Recovery-Tool
 This tool install GSi rom, Fastboot Rom, install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
 
-# installation :- 
+# install Termux App in phone & update PKG:- 
 
-```Install``` [termux](https://f-droid.org/repo/com.termux_118.apk) ```&``` [Termux-api](https://f-droid.org/repo/com.termux.api_51.apk) ```apk```
+```Install``` [termux](https://f-droid.org/repo/com.termux_1022.apk) ```&``` [Termux-api](https://f-droid.org/repo/com.termux.api_1001.apk) ```apk```
 ```console
 yes | pkg update && upgrade
 ```
@@ -19,7 +19,7 @@ pkg install termux-api
 yes | pkg install git
 ```
 
-# Installation Termux-Root-Recovery-Tool :-
+# Installation Termux-Root-Recovery-Tool in Termux :-
 
 ```console
 git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
@@ -29,7 +29,7 @@ git clone https://github.com/Ishu43642/Termux-Root-Recovery-Tool.git
 cd Termux-Root-Recovery-Tool
 ```
 ```console
-chmod +x flash.sh && chmod +x flash-stock-rom.sh && chmod +x flashAB.sh && chmod +x gsi-flash.sh
+chmod -R +x .
 ```
 # installation Termux-Adb :-
 [Termux-Adb Fastboot](https://github.com/nohajc/termux-adb) 
