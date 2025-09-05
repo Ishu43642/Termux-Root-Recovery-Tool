@@ -6,6 +6,8 @@ This tool install GSi rom, Fastboot Rom, install Twrp Recovery, Boot.img, vbmeta
 # install Termux App in phone & update PKG:- 
 
 ```Install``` [termux](https://f-droid.org/repo/com.termux_1022.apk) ```&``` [Termux-api](https://f-droid.org/repo/com.termux.api_1001.apk) ```apk```
+
+```install``` [Termux-monet](https://github.com/Termux-Monet/termux-monet/releases/download/v0.119.0-b1-36/termux-app_v0.119.0-b1-36+apt-android-7-github-debug_universal.apk) ```&``` [Termux-monet-api](
 ```console
 yes | pkg update && upgrade
 ```
