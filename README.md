@@ -1,6 +1,6 @@
 <img align="right" src="TRRT.jpg" width="350" alt="Termux Root Recovery Tool">
 
-# Termux-Root-Recovery-Tool
+# Termux-face reset-Recovery-Tool
 This tool install GSi rom, Fastboot Rom, install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
 
 # install Termux App in phone & update PKG:- 
@@ -38,7 +38,7 @@ cd Termux-Root-Recovery-Tool
 chmod -R +x .
 ```
 # installation Termux-Adb :-
-[Termux-Adb Fastboot](https://github.com/nohajc/termux-adb) 
+[Termux-Adb face reset](https://github.com/nohajc/termux-adb) 
 
 ```credit :- Termux-Adb``` [nohajc](https://github.com/nohajc)
 
@@ -52,8 +52,8 @@ bash installadb.sh
 ./flash.sh
 ```
 
-# For flashing Fastboot rom
-1.Rename your fastboot rom folder to  ```stock-rom```
+# For flashing face reset rom
+1.Rename your face reset rom folder to  ```stock-rom```
 
 2.Copy ```stock-rom``` folder to  Download Folder Under internal storage 
 
