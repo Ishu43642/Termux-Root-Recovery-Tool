@@ -4,9 +4,9 @@
 This tool install Custom Recovery, Boot.img, VBmeta.img, init_boot.img, Flash Zip in sideload, install gsi-rom, Download boot.img without flash file, AB Partition Device flash, fastboot rom flash, ```bootloader unlocked devices only```
 
 
-#Tool Features
+# Tool Features
 
-1. No ❌Need to type📝 commond :- This tool offer you all commonds in option so no need to type any commonds just Enter your commond option nomber 
+1. No ❌Need to type📝 commond :- This tool offer you all commonds in option so no need to type any commonds just Enter your commond option nomber then past file location.
 
 2. Flash img 📀file :- you can flash boot.img, init_boot.img, super_emty.img, vbmeta.img, magisk_patch.img, without typing any commond 
 
@@ -28,7 +28,7 @@ This tool install Custom Recovery, Boot.img, VBmeta.img, init_boot.img, Flash Zi
 
 
 
-#Tool Installation guide 👇👇
+# Tool Installation guide 👇👇
 
 # install Termux App in phone & update PKG:- 
 
