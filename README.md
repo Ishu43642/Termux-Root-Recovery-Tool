@@ -1,7 +1,34 @@
 <img align="right" src="TRRT1.jpg" width="350" alt="Termux Root Recovery Tool">
 
 # Termux-Root-Recovery-Tool
-This tool install GSi rom, Fastboot Rom, install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
+This tool install Custom Recovery, Boot.img, VBmeta.img, init_boot.img, Flash Zip in sideload, install gsi-rom, Download boot.img without flash file, AB Partition Device flash, fastboot rom flash, ```bootloader unlocked devices only```
+
+
+#Tool Features
+
+1. No ❌Need to type📝 commond :- This tool offer you all commonds in option so no need to type any commonds just Enter your commond option nomber 
+
+2. Flash img 📀file :- you can flash boot.img, init_boot.img, super_emty.img, vbmeta.img, magisk_patch.img, without typing any commond 
+
+3. Reboot 🔃 option:- in single click you can reboot you device to fastboot, recovery, fastbootD, system
+
+4. check 🔌 connected device:- this tool offer to check connected adb & fastboot device in your mobile
+
+5. Flash Zip 🗃️ file :- You can flash any zip file ( magisk.zip, custom rom zip, kernel zip ) in sideload mode
+
+6. 🆎 Partition Tool :- Using this tool you can flash root, recovery, boot, vbmeta in AB partition device 
+
+7. 💿 Flash Gsi Rom :- using this tool you can easily flash gsi rom in your dynamic partition device 
+
+8. FRP🔐 Remove:- Some older device FRP lock bypass using this tool.
+
+9. Firmware Content Extracter:- you can download boot.img, init_boot.img, vendor_boot.img without downloading any flash file
+
+10. USB Fix Tool :- if your device is not connecting then you can easily fix using this option 
+
+
+
+#Tool Installation guide 👇👇
 
 # install Termux App in phone & update PKG:- 
 
