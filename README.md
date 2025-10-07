@@ -90,3 +90,8 @@ bash installadb.sh
 1. nohajc - for [Termux-Adb Fastboot](https://github.com/nohajc/termux-adb)
 
 2. [Mahesh Verma](https://github.com/MaheshTechnicals) - For Ui Enhancement in my tool
+
+# Subscribe My YouTube channel 
+
+1. [Repair A2Z](https://youtube.com/@repaira2z)
+2. [Repair A2Z Mix](https://youtube.com/@repaira2zmix)
