@@ -1,4 +1,4 @@
-<img align="right" src="TRRT.jpg" width="350" alt="Termux Root Recovery Tool">
+<img align="right" src="TRRT1.jpg" width="350" alt="Termux Root Recovery Tool">
 
 # Termux-Root-Recovery-Tool
 This tool install GSi rom, Fastboot Rom, install Twrp Recovery, Boot.img, vbmeta.img Magisk Root in bootloader unlocked devices only
@@ -58,3 +58,8 @@ bash installadb.sh
 2.Copy ```stock-rom``` folder to  Download Folder Under internal storage 
 
  ```Now you can use Fastboot Rom Flash Option```
+
+ # Credit :-
+1. nohajc - for [Termux-Adb Fastboot](https://github.com/nohajc/termux-adb)
+
+2. [Mahesh Verma](https://github.com/MaheshTechnicals) - For Ui Enhancement in my tool
