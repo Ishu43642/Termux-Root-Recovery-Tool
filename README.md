@@ -8,23 +8,25 @@ This tool install Custom Recovery, Boot.img, VBmeta.img, init_boot.img, Flash Zi
 
 1. No ❌Need to type📝 commond :- This tool offer you all commonds in option so no need to type any commonds just Enter your commond option nomber then past file location.
 
-2. Flash img 📀file :- you can flash boot.img, init_boot.img, super_emty.img, vbmeta.img, magisk_patch.img, without typing any commond 
+2. full function automatic usb🔌 & all ⬇️ pkg detect befor tool start for batter connection 
 
-3. Reboot 🔃 option:- in single click you can reboot you device to fastboot, recovery, fastbootD, system
+3. Flash img 📀file :- you can flash boot.img, init_boot.img, super_emty.img, vbmeta.img, magisk_patch.img, without typing any commond 
 
-4. check 🔌 connected device:- this tool offer to check connected adb & fastboot device in your mobile
+4. Reboot 🔃 option:- in single click you can reboot you device to fastboot, recovery, fastbootD, system
 
-5. Flash Zip 🗃️ file :- You can flash any zip file ( magisk.zip, custom rom zip, kernel zip ) in sideload mode
+5. check 🔌 connected device:- this tool offer to check connected adb & fastboot device in your mobile
 
-6. 🆎 Partition Tool :- Using this tool you can flash root, recovery, boot, vbmeta in AB partition device 
+6. Flash Zip 🗃️ file :- You can flash any zip file ( magisk.zip, custom rom zip, kernel zip ) in sideload mode
 
-7. 💿 Flash Gsi Rom :- using this tool you can easily flash gsi rom in your dynamic partition device 
+7. 🆎 Partition Tool :- Using this tool you can flash root, recovery, boot, vbmeta in AB partition device 
 
-8. FRP🔐 Remove:- Some older device FRP lock bypass using this tool.
+8. 💿 Flash Gsi Rom :- using this tool you can easily flash gsi rom in your dynamic partition device 
 
-9. Firmware Content Extracter:- you can download boot.img, init_boot.img, vendor_boot.img without downloading any flash file
+9. FRP🔐 Remove:- Some older device FRP lock bypass using this tool.
 
-10. USB Fix Tool :- if your device is not connecting then you can easily fix using this option 
+10. Firmware Content Extracter:- you can download boot.img, init_boot.img, vendor_boot.img, system.img, super.img without downloading any flash file
+
+11. USB Fix Tool :- if your device is not connecting then you can easily fix using this option 
 
 
 
@@ -73,10 +75,18 @@ chmod -R +x .
 bash installadb.sh
 ```
 
-# Run Tool 
+# Run Tool with auto usb & pkg detect
 
 ```console
+./start.sh
+```
+# Direct open tool
+```console
 ./flash.sh
+```
+# Direct open usb fix tool
+```console
+./usbfix.sh
 ```
 
 # For flashing Fastboot rom
