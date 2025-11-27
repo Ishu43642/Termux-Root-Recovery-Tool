@@ -28,6 +28,7 @@ This tool install Custom Recovery, Boot.img, VBmeta.img, init_boot.img, Flash Zi
 
 11. USB Fix Tool :- if your device is not connecting then you can easily fix using this option 
 
+12. Automatic Fix Termux-api , termux-adb, Termux-usb in start menu select 1 
 
 
 # Tool Installation guide 👇👇
@@ -75,19 +76,12 @@ chmod -R +x .
 bash installadb.sh
 ```
 
-# Run Tool with auto usb & pkg detect
+# Run Tool
 
 ```console
 ./start.sh
 ```
-# Direct open tool
-```console
-./flash.sh
-```
-# Direct open usb fix tool
-```console
-./usbfix.sh
-```
+
 
 # For flashing Fastboot rom
 1.Rename your fastboot rom folder to  ```stock-rom```
