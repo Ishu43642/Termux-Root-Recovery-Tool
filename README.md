@@ -51,9 +51,7 @@ pkg install termux-api
 ```console
 yes | pkg install git
 ```
-```console
-yes | pkg install android-tools
-```
+
 
 # Installation Termux-Root-Recovery-Tool in Termux :-
 
