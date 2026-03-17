@@ -153,7 +153,7 @@ case $flasher in
     fi
 
     echo -e "\033[1;33m⚡ Flashing init_boot... \033[0m"
-    termux-fastboot flash recovery $romname
+    termux-fastboot flash init_boot $romname
 
     
     read -p $'\033[1;97mDo you want to flash vbmeta.img file? Type \033[1;92my\033[1;97m to flash, any key to skip: \033[0m' vbimg;
