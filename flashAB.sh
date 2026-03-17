@@ -558,7 +558,7 @@ case $flasher in
         return_to_menu;
     fi
 
-    echo -e "\033[1;33m⚡ Flashing init_boot... \033[0m"
+    echo -e "\033[1;33m⚡ Flashing vendor_boot... \033[0m"
     termux-fastboot flash vendor_boot $romname
 
     if [ $? -eq 0 ]; then
@@ -582,7 +582,7 @@ case $flasher in
         return_to_menu;
     fi
 
-    echo -e "\033[1;33m⚡ Flashing boot... \033[0m"
+    echo -e "\033[1;33m⚡ Flashing vendor_boot... \033[0m"
     termux-fastboot flash vendor_boot_a $romname
 
     if [ $? -eq 0 ]; then
@@ -606,7 +606,7 @@ case $flasher in
         return_to_menu;
     fi
 
-    echo -e "\033[1;33m⚡ Flashing init_boot... \033[0m"
+    echo -e "\033[1;33m⚡ Flashing vendor_boot... \033[0m"
     termux-fastboot flash vendor_boot_b $romname
 
     if [ $? -eq 0 ]; then
